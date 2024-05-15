@@ -24,3 +24,37 @@ def signup_enter():
 
     actions.perform()
 
+
+def signup_filling():
+    user_name_text = driver.find_element(By.ID, 'user_name')
+    user_name_text.send_keys('Bot-user')
+
+    sleep(2)
+
+    clue = driver.find_element(By.ID, 'nickname')
+    clue.send_keys('strong password')
+
+    sleep(2)
+
+    country = driver.find_element(By.NAME, 'country')
+    actions = ActionChains(driver)
+    actions.click(country)
+    actions.perform()
+
+    sleep(2)
+
+    # countries_el = driver.find_elements(By.TAG_NAME, 'option')
+
+    select = Select(driver.find_elements(By.XPATH, '/html/body/div/div/form/select')[0])
+    print(select)
+    select.select_by_index(120)
+
+    sleep(2)
+
+    actions.click(country)
+    actions.perform()
+
+    submit = driver.find_element(By.XPATH, '/html/body/div/form/div[2]/input')
+    actions.click(submit)
+    actions.perform()
+
