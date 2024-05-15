@@ -58,3 +58,9 @@ def signup_filling():
     actions.click(submit)
     actions.perform()
 
+
+signup_enter()
+
+sleep(3)
+
+signup_filling()
