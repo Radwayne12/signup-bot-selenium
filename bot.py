@@ -58,9 +58,13 @@ def signup_filling():
     actions.click(submit)
     actions.perform()
 
+def main():
+    signup_enter()
 
-signup_enter()
+    sleep(3)
 
-sleep(3)
+    signup_filling()
 
-signup_filling()
+
+if __name__ == "__main__":
+    mian()
