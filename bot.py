@@ -14,6 +14,10 @@ driver.get('http://127.0.0.1:5000')
 
 sleep(2)
 
+user_input = 'Bot-user'  # default user that bot inputs
+password_input = 'strong password'  # default password that bot inputs
+country_input: int = 2  # default country [0-195] alphabetically | lines 50-52 to find desired index
+
 
 def signup_enter():
     signup_button = driver.find_element(By.NAME, 'signup')
@@ -27,12 +31,12 @@ def signup_enter():
 
 def signup_filling():
     user_name_text = driver.find_element(By.ID, 'user_name')
-    user_name_text.send_keys('Bot-user')
+    user_name_text.send_keys(user_input)
 
     sleep(2)
 
     clue = driver.find_element(By.ID, 'nickname')
-    clue.send_keys('strong password')
+    clue.send_keys(password_input)
 
     sleep(2)
 
@@ -44,10 +48,11 @@ def signup_filling():
     sleep(2)
 
     # countries_el = driver.find_elements(By.TAG_NAME, 'option')
+    # country_text_list = [i.text for i in countries_el]
+    # country_input = country_text_list.index('Your-country-name'))
 
-    select = Select(driver.find_elements(By.XPATH, '/html/body/div/div/form/select')[0])
-    print(select)
-    select.select_by_index(120)
+    select = Select(driver.find_elements(By.TAG_NAME, 'select')[0])
+    select.select_by_index(country_input)
 
     sleep(2)
 
@@ -58,13 +63,14 @@ def signup_filling():
     actions.click(submit)
     actions.perform()
 
+
 def main():
     signup_enter()
 
-    sleep(3)
+    sleep(2)
 
     signup_filling()
 
 
 if __name__ == "__main__":
-    mian()
+    main()
