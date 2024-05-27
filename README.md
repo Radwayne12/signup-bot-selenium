@@ -1,3 +1,3 @@
-- Utilizing Selenium Web Driver in Python to automatically sign up to the Flask Website. The Selenium spider finds sing-up inputs, fills in predefined data (send_keys) and creates an account.
+- Utilizing Selenium Web Driver in Python to automatically sign up to the Flask Website (tryouts). The Selenium spider finds sing-up inputs, fills in predefined data (send_keys) and creates an account.
 - Implementing ActionChains to perform interactions with the webpage, namely clicks. 
 - Applying time interval between actions by sleep() function from time library.
